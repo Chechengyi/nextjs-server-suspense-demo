@@ -1,3 +1,8 @@
+"use client"
+
+// 加上 "use client" 该组件在 server side 和 client side 都会被执行
+// 否则该组件背视为一个 Server Component 只在 server side 执行
+// 两种模式都能实现 Suspense 流式渲染
 import { Suspense } from 'react'
 
 
@@ -5,9 +10,9 @@ function getData(): Promise<{name: string}> {
   return new Promise((resolve, reject) => {
     global.setTimeout(() => {
       resolve({
-        name: 'ceshiceshi'
+        name: '333333'
       })
-    }, 10000)
+    }, 2000)
   })
 }
 
@@ -60,6 +65,7 @@ export default function Home() {
 }
 
 const TestComponent = () => {
+  console.log('component render')
   fetch.send()
   const data = fetch.read()
   return (

@@ -1,3 +1,5 @@
+"use client"
+
 
 function fetch(): Promise<{name: string}> {
   return new Promise((resolve, reject) => {
@@ -18,8 +20,8 @@ async function getData() {
 }
  
 export default async function Page() {
+  console.log('111111')
   const data = await getData()
- 
   return <div>{data.name}</div>
   // return <div>123</div>
 }
